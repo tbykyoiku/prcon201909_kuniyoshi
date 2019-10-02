@@ -1,0 +1,39 @@
+
+body {
+	background-color:skyblue;
+}
+
+canvas{
+	border:solid 3px;
+	
+	background-color:white;
+}
+
+label{
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+      color: black;
+  }
+
+button {
+      height: 30px;
+      width: 150px;
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+      border:solid 3px;
+      background-color:white;
+      color: #00CCFF;
+  }
+
+select {
+	width:50px;
+	height: 20px;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    border:solid 1px;
+    background-color:white;
+    color: black;
+}
