@@ -4,23 +4,23 @@
 		var canvas = document.getElementById('mycanvas');
 		var dlLink = document.getElementById('download_link');
 		
-		<!--ƒtƒ@ƒCƒ‹–¼-->
+		<!--ãƒ•ã‚¡ã‚¤ãƒ«å-->
 		var name = 'dlpaint.png';
 		
-		<!--canvas‘Î‰‚Ì‚İ•`‰æƒXƒNƒŠƒvƒg‹N“®-->
+		<!--canvaså¯¾å¿œæ™‚ã®ã¿æç”»ã‚¹ã‚¯ãƒªãƒ—ãƒˆèµ·å‹•-->
 		if (canvas.getContext){
 			var ctx = canvas.getContext('2d');
 		}
 		
-		<!--•`‰æİ’è-->
+		<!--æç”»è¨­å®š-->
 		var drawing = false;
 		var before_x = 0;
 		var before_y = 0;
 		
-		<!--ƒ}ƒEƒX‚ğ“®‚©‚µ‚½‚Ì“®ì-->
+		<!--ãƒã‚¦ã‚¹ã‚’å‹•ã‹ã—ãŸæ™‚ã®å‹•ä½œ-->
 		canvas.addEventListener('mousemove', draw_canvas);
 		
-		<!--ƒ}ƒEƒX‚ªƒNƒŠƒbƒN‚³‚ê‚Ä‚¢‚é‚Ì“®ì-->
+		<!--ãƒã‚¦ã‚¹ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹æ™‚ã®å‹•ä½œ-->
 		canvas.addEventListener('mousedown', function(e) {
 			drawing = true;
 			var rect = e.target.getBoundingClientRect();
@@ -28,49 +28,49 @@
 			before_y = e.clientY - rect.top;
 		});
 		
-		<!--ƒ}ƒEƒX‚ªƒNƒŠƒbƒN‚ğ‚â‚ß‚½‚Ì“®ì-->
+		<!--ãƒã‚¦ã‚¹ãŒã‚¯ãƒªãƒƒã‚¯ã‚’ã‚„ã‚ãŸæ™‚ã®å‹•ä½œ-->
 		canvas.addEventListener('mouseup', function() {
 			drawing = false;
 		});
 		
-		<!--canvas‚Ì•`‰æİ’è-->
+		<!--canvasã®æç”»è¨­å®š-->
 		function draw_canvas(e) {
 			
-			<!--ƒNƒŠƒbƒN‚Ì‚İ•`‰æ‚³‚ê‚é‚æ‚¤‚Éİ’è-->
+			<!--ã‚¯ãƒªãƒƒã‚¯æ™‚ã®ã¿æç”»ã•ã‚Œã‚‹ã‚ˆã†ã«è¨­å®š-->
 			if(!drawing) {
 				reuturn
 			};
 			
-			<!--ƒ}ƒEƒXˆÊ’u‚Ì‘ã“ü-->
+			<!--ãƒã‚¦ã‚¹ä½ç½®ã®ä»£å…¥-->
 			var rect = e.target.getBoundingClientRect();
 			var x = e.clientX - rect.left;
 			var y = e.clientY - rect.top;
 			
-			<!--ƒ‰ƒCƒ“EƒLƒƒƒbƒvEƒXƒ^ƒCƒ‹‚Ìw’è(butt,round,square)-->
+			<!--ãƒ©ã‚¤ãƒ³ãƒ»ã‚­ãƒ£ãƒƒãƒ—ãƒ»ã‚¹ã‚¿ã‚¤ãƒ«ã®æŒ‡å®š(butt,round,square)-->
 			var LineStyle = document.getElementById('lineCapStyle').value;
 			ctx.lineCap = LineStyle;
 			
-			<!--g‚¤FEƒXƒ^ƒCƒ‹‚Ìw’è-->
+			<!--ä½¿ã†è‰²ãƒ»ã‚¹ã‚¿ã‚¤ãƒ«ã®æŒ‡å®š-->
 			var color = document.getElementById('color').value;
 			ctx.strokeStyle = color;
 			
-			<!--ü‚Ì‘¾‚³İ’è-->
+			<!--ç·šã®å¤ªã•è¨­å®š-->
 			var w = document.getElementById('width').value;
 			ctx.lineWidth = w;
 			
-			<!--Œ»İ‚ÌƒpƒX‚Ì‰Šú‰»-->
+			<!--ç¾åœ¨ã®ãƒ‘ã‚¹ã®åˆæœŸåŒ–-->
 			ctx.beginPath();
 			
-			<!--w’è’n“_‚ÅV‹KƒTƒuƒpƒX‚ğ¶¬-->
+			<!--æŒ‡å®šåœ°ç‚¹ã§æ–°è¦ã‚µãƒ–ãƒ‘ã‚¹ã‚’ç”Ÿæˆ-->
 			ctx.moveTo(before_x, before_y);
 			
-			<!--ƒTƒuƒpƒX‚©‚çŒ»İ‚ÌƒpƒX‚Ö’¼ü‚ğŒ‹‚Ô-->>
+			<!--ã‚µãƒ–ãƒ‘ã‚¹ã‹ã‚‰ç¾åœ¨ã®ãƒ‘ã‚¹ã¸ç›´ç·šã‚’çµã¶-->>
 			ctx.lineTo(x, y);
 			
-			<!--Œ»İ‚ÌƒXƒgƒ[ƒNƒXƒ^ƒCƒ‹‚ÅƒTƒuƒpƒX‚Éü‚ğˆø‚­-->
+			<!--ç¾åœ¨ã®ã‚¹ãƒˆãƒ­ãƒ¼ã‚¯ã‚¹ã‚¿ã‚¤ãƒ«ã§ã‚µãƒ–ãƒ‘ã‚¹ã«ç·šã‚’å¼•ã-->
 			ctx.stroke();
 			
-			<!--ƒTƒuƒpƒX‚ğ•Â‚¶‚é-->
+			<!--ã‚µãƒ–ãƒ‘ã‚¹ã‚’é–‰ã˜ã‚‹-->
 			ctx.closePath();
 			
 			before_x = x;
@@ -78,36 +78,36 @@
 		};
 		
 		
-		<!--ƒLƒƒƒ“ƒpƒX‚Ì‰Šú‰»-->
+		<!--ã‚­ãƒ£ãƒ³ãƒ‘ã‚¹ã®åˆæœŸåŒ–-->
 		document.getElementById('clearBtn').addEventListener('click', function() {
 		
-		ret = confirm('ƒLƒƒƒ“ƒoƒX‚Ì“à—e‚ğ‰Šú‰»‚µ‚Ü‚·B')
+		ret = confirm('ã‚­ãƒ£ãƒ³ãƒã‚¹ã®å†…å®¹ã‚’åˆæœŸåŒ–ã—ã¾ã™ã€‚')
 		
 			if(ret == true){
 				ctx.clearRect(0,0,canvas.width, canvas.height);
 			}
 		});
 	
-		<!--ƒLƒƒƒ“ƒpƒX‚Ì“h‚è‚Â‚Ô‚µ-->
+		<!--ã‚­ãƒ£ãƒ³ãƒ‘ã‚¹ã®å¡—ã‚Šã¤ã¶ã—-->
 		document.getElementById('paintClearBtn').addEventListener('click', function() {
 		ctx.fillStyle = document.getElementById('paintClear').value;
 		ctx.fillRect(0,0,canvas.width,canvas.height);
 		});
 		
-		<!--ƒLƒƒƒ“ƒoƒX‚Ì•Û‘¶-->
+		<!--ã‚­ãƒ£ãƒ³ãƒã‚¹ã®ä¿å­˜-->
 		document.getElementById('dlBtn').addEventListener('click', function() {
 			
 			if (window.navigator.msSaveBlob) {
 			
-				<!--IE‚Å•Û‘¶‚·‚éê‡-->
+				<!--IEã§ä¿å­˜ã™ã‚‹å ´åˆ-->
 				if(ret == true)
 				var blob = canvas.msToBlob();
 				window.navigator.msSaveBlob(blob, name);
 				
 			} else {
 			
-				<!-- chomeEOpelra‚Å•Û‘¶‚·‚éê‡(‚»‚Ì‘¼‘Î‰‰Â‚Æv‚í‚ê‚é‚ª–¢Šm”F) -->
-				ret = confirm('ƒLƒƒƒ“ƒoƒX‚Ì“à—e‚ğ•Û‘¶‚µ‚Ü‚·B')
+				<!-- chomeãƒ»Opelraã§ä¿å­˜ã™ã‚‹å ´åˆ(ãã®ä»–å¯¾å¿œå¯ã¨æ€ã‚ã‚Œã‚‹ãŒæœªç¢ºèª) -->
+				ret = confirm('ã‚­ãƒ£ãƒ³ãƒã‚¹ã®å†…å®¹ã‚’ä¿å­˜ã—ã¾ã™ã€‚')
 				
 				if(ret == true){
 					dlLink.href = canvas.toDataURL('image/png');
@@ -118,18 +118,18 @@
 			}
 		});
 		
-		<!-- ‰æ‘œ‚Ì“Ç‚İ‚İ -->
+		<!-- ç”»åƒã®èª­ã¿è¾¼ã¿ -->
 		document.getElementById('uploadFile').addEventListener('change', function(e) {
 			var fileData = e.target.files[0];
 			var reader = new FileReader();
 			
-			<!-- ƒLƒƒƒ“ƒoƒX“à‚Ìƒf[ƒ^‚ğƒNƒŠƒA -->>
+			<!-- ã‚­ãƒ£ãƒ³ãƒã‚¹å†…ã®ãƒ‡ãƒ¼ã‚¿ã‚’ã‚¯ãƒªã‚¢ -->>
 			reader.onload = function() {
 				ctx.clearRect(0,0,canvas.width,canvas.height);
 				var img = new Image();
 				img.src = reader.result;
 				
-			<!-- ‰æ‘œ‚ğƒLƒƒƒ“ƒoƒX‚Ì˜g“à‚Éû‚ß‚Ä“\‚è•t‚¯(ˆ³k–¢À‘•‚Ì‚½‚ß) -->
+			<!-- ç”»åƒã‚’ã‚­ãƒ£ãƒ³ãƒã‚¹ã®æ å†…ã«åã‚ã¦è²¼ã‚Šä»˜ã‘(åœ§ç¸®æœªå®Ÿè£…ã®ãŸã‚) -->
 				img.onload = function() {
 					ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 				}
